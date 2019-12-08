@@ -1,0 +1,33 @@
+<% include ../partials/header ) %>
+<div class="ui container" style="margin-bottom: 40px;">
+    <div class="ui huge message">
+        <div class="ui container">
+            <div class="ui huge header"> <i class="hotjar icon"></i> YelpCamp!</div>
+            <p>Welcome to our <strong>YelpCamp!</strong> project here we have founded the safest and coolest camping sites allover across the world only for you.</p>
+            <a href="/campgrounds/new" class="ui big blue button">Create new campground</a>
+        </div>
+    </div>
+</div>
+<div class="ui container">
+    <div class="ui stackable grid">
+        <% campground.forEach(function(camp){ %>
+            <div class="four wide column">
+                <div class="ui card">
+                    <div class="image"> <img src="<%= camp.image %>" alt=""> </div>
+                    <div class="content">
+                        <div class="header"><%= camp.name.substring(0,14) %>...</div>
+                        <div class="meta">
+                            <span class="date"><%= camp.date.toDateString() %></span>
+                        </div>
+                        <div class="description"><%= camp.description.substring(0,70) %>...</div>
+                    </div>
+                    <div class="extra content">
+                        <a href="/campgrounds/<%= camp._id %>" class="ui blue inverted button">More Info</a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<% include ../partials/footer ) %>

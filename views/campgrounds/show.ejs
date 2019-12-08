@@ -1,0 +1,54 @@
+<% include ../partials/header %>
+
+<div class="ui main container segment">
+    <div class="ui grid">
+        <div class="four wide column">
+
+        </div>
+        <div class="twelve wide column">
+            <div class="ui card" style="width:100%;">
+                    <div class="image"> <img src="<%= campground.image %>" alt=""> </div>
+                    <div class="content">
+                        <span class="right floated" style="font-size: larger;">$  <%= campground.price %> /night</span>
+                        <div class="header"><%= campground.name %></div>
+                        <div class="meta">
+                            <span class="date"><%= campground.date.toDateString() %></span>
+                        </div>
+                        <div class="description"><%= campground.description %></div>
+                        <p><strong><em>Submited By - <%= campground.author.createdby %></em></strong></p>
+                    </div>
+                    <div class="extra content">
+                        <% if(current_user && current_user._id.equals(campground.author.id)){ %>
+                            <a href="/campgrounds/<%= campground._id %>/edit" class="ui orange button"> <i class="edit outline icon"></i> Edit</a>
+                            <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" style="display:inline;">
+                                <button class="ui red button"><i class="trash alternate icon"></i> Delete</button>
+                            </form>    
+                        <% } %>
+                    </div>
+            </div>
+            <div class="ui card" style="width:100%;">
+                <div style="padding: 10px;">
+                    <h4>Comments</h4>
+                    <a href="/campgrounds/<%= campground._id %>/comments/new" class="right floated ui green big button" >Add Comment</a>
+                </div>
+                <% campground.comment.forEach(function(comment){ %>
+                    <div class="extra content" style="padding: 0;"></div>
+                    <div style="padding:10px">
+                        <span class="right floated">10 days ago</span>
+                        <p><strong><%= comment.author.username %></strong></p>
+                        <p><%= comment.text %></p>
+                        <% if(current_user && current_user._id.equals(comment.author.id)){ %>
+                            <a href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit" class="mini ui orange button">Edit</a>
+                            <form action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" style="display: inline;">
+                                <button class="mini ui red button">Delete</button>
+                            </form>
+                        <% } %>
+                    </div>
+                    <div class="extra content" style="padding: 0;"></div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

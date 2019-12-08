@@ -1,0 +1,25 @@
+<% include ../partials/header  %>
+<h1 style="text-align: center;">SignUp Page</h1>
+<form action="/register" method="POST" class="ui form">
+    <div style="width:30%; margin:30px auto;">
+        <div class='field'>
+            <label for=""><i class="user plus icon"></i>  Username </label>
+            <input type="text" placeholder="Username" name="username">
+        </div>
+        <div class='field'>
+            <label for=""><i class="user secret icon"></i>  Password</label>
+            <input type="password" placeholder="Password" name="password">
+        </div>
+        <div class='field'>
+            <label for=""><i class="envelope icon"></i>  Email</label>
+            <input type="text" placeholder="Email" name="email">
+        </div>
+        <div class='field'>
+            <label for=""><i class="user icon"></i>Profile Image</label>
+            <input type="text" placeholder="Avatar" name="image">
+        </div>
+        <button class="ui blue button" style="width:100%;">SignUp</button>
+    </div>
+</form>
+
+<% include ../partials/footer  %>

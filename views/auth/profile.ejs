@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+<h1 style="text-align: center;"> User Profile </h1>
+<div class="ui link cards" style="text-align: center;">
+    <div class="card" style="margin:30px auto; width:43%;">
+        <div class="image">
+            <img src="<%= user.image %>">
+        </div>
+        <div class="content">
+            <div class="header"><%= user.username %></div>
+            <div class="meta">
+                <p><%= user.email %></p>
+            </div>
+            <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae rem libero error similique unde dignissimos amet facere aliquid odit quam? Nihil nobis ad facere ipsam amet voluptatum aperiam. Esse, qui!</div>
+        </div>
+        <div class="extra-content">
+            <div style="padding: 10px;">
+                <i class="hotjar icon"></i> <strong>campground created -<%= user.campcreated.length %></strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

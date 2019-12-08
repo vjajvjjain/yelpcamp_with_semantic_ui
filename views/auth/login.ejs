@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+<h1 style="text-align: center;">LogIn Page</h1>
+<form action="/login" method="POST" class="ui form">
+    <div style="width:30%; margin:30px auto;">
+        <div class="field">
+            <label for=""><i class="user icon"></i>  Username</label>
+            <input type="text" placeholder="Username" name="username">
+        </div>
+        <div class="field">
+            <label for=""><i class="user secret icon"></i>  Password</label>
+            <input type="password" placeholder="Password" name="password">
+        </div>
+        <button class="ui blue button" style="width: 100%;">Login</button>
+    </div>
+</form>
+
+<% include ../partials/footer %>

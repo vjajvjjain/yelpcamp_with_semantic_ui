@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+<div class="ui main container">
+    <h1 style="text-align: center;">Create New Campgrounds and Make People Explore Them</h1>
+    <form action="/campgrounds" method="POST" class="ui form">
+        <div style="width:30%; margin: 30px auto;">
+            <div class="field">
+                <label for="">Name</label>
+                <input type="text" placeholder="Place name" name="campground[name]">
+            </div>
+            <div class="field">
+                <label for="">Price</label>
+                <input type="Number" placeholder="Price" name="campground[price]" step="1">
+            </div>
+            <div class="field">
+                <label for="">Image</label>
+                <input type="text" placeholder="Image" name="campground[image]">
+            </div>
+            <div class="field">
+                <label for="">Description</label>
+                <textarea name="campground[description]" id="" cols="30" rows="10" placeholder="Description" ></textarea>
+            </div>
+            <button style="width:100%;" class="positive ui big button">Create</button>
+        </div>
+    </form>    
+</div>
+<% include ../partials/footer %>

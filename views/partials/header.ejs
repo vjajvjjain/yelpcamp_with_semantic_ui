@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="ui inverted segment">
+        <div class="ui inverted secondary menu">
+            <a href="/campgrounds" class="active item"> <i class="hotjar icon"></i>  Home</a>
+            <form action="/campgrounds" method="GET">
+                <div class="ui icon input" style="margin-left:20px; margin-right: 15px;">
+                    <input type="text" placeholder="Search..."  name="search">
+                </div>
+                <button class="ui green button">Search</button>
+            </form>
+            <div class="right menu">
+                <% if(!current_user){ %>
+                    <a href="/register" class="item"> <i class="user plus icon"></i>   Sign Up</a>
+                    <a href="/login" class="item"> <i class="sign in alternate icon"></i>   Login</a>
+                <% }else{ %>
+                    <a href="/user/<%= current_user._id %>" class="item">Signed  in as <%= current_user.username %></a>
+                    <a href="/logout" class="item"> <i class="sign out alternate icon"></i>   Logout</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="ui container" style="margin-bottom: 20px;">
+        <% if(error && error.length>0){ %>
+            <div class="ui error message">
+                <div class="header"><%= error %></div>
+            </div>
+        <% } %>
+        <% if(success && success.length>0){ %>
+            <div class="ui success message">
+                <div class="header"><%= success %></div>
+            </div>
+        <% } %>
+    </div>
