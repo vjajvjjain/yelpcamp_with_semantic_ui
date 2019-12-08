@@ -1,3 +1,4 @@
+// SEMANTIC_UI YELPCAMP JUST MADE FOR PRACTICE
 const express = require("express")
 const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
